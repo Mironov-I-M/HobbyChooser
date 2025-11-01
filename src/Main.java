@@ -22,17 +22,13 @@ public class Main {
 
     public static int chooseHobbyRecursive(int[] startNumbers, int day, int[] memory) {
         int[] mixedArray = new int[startNumbers.length + memory.length];
-
         int prv = mixedArray[mixedArray.length - 1 - day];
         int prePrePrev = mixedArray[mixedArray.length - 1 - day - 2];
         int result = (prv * prePrePrev) % 10 + 1;
-
         if (day == 1) {
             return result;
         }
-
         memory[memory.length - day] = result;
-
         return chooseHobbyRecursive(startNumbers, day - 1, memory);
     }
 
